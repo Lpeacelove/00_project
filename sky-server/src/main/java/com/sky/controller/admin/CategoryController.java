@@ -39,4 +39,11 @@ public class CategoryController {
         return Result.success(pageResult);
     }
 
+    @DeleteMapping
+    @ApiOperation(value ="删除分类接口")
+    public Result deleteById(@RequestParam("id") Long id) {
+        log.info("删除分类：{}", id);
+        categoryService.deleteById(id);
+        return Result.success();
+    }
 }
