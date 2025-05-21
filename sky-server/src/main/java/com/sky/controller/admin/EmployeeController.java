@@ -103,4 +103,10 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
+    @PostMapping("/status/{status}")
+    @ApiOperation(value ="启用禁用员工接口")
+    public Result<String> startOrStop(@PathVariable Integer status, Long id){
+        employeeService.startOrStop(status,id);
+        return Result.success();
+    }
 }
